@@ -1,0 +1,25 @@
+name: 'Upload a Debian package using dput'
+description: 'Upload a Debian package'
+inputs:
+  gpg_key:
+    description: GPG private key
+    required: true
+  repository:
+    description: Name of PPA/repository to upload to
+    required: true
+  packages:
+    description: Files to upload
+    required: false
+    default: "*_source.changes"
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+  - ${{ inputs.gpg_key }}
+  - ${{ inputs.repository }}
+  - ${{ inputs.packages }}
+
+branding:
+  icon: upload-cloud
+  color: yellow
