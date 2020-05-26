@@ -1,6 +1,6 @@
 #!/bin/bash
 # Import the gpg signing key
-gpg --import < $INPUT_GPG_KEY
+echo $INPUT_GPG_KEY | gpg --import
 
 debsign $INPUT_PACKAGES
 
