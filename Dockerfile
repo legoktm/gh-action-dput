@@ -1,9 +1,4 @@
-FROM debian:latest
-
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update && apt-get upgrade -y && \
- apt-get install dput-ng devscripts -y
+FROM docker.pkg.github.com/legoktm/gh-action-images/dput:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
