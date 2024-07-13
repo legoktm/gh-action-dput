@@ -27,10 +27,10 @@ jobs:
         with:
           args: --no-sign
 
-      - uses: legoktm/gh-action-dput@master
+      - uses: legoktm/gh-action-dput@main
         name: Upload package
-        # Only upload on pushes to master or a tag
-        if: github.event_name == 'push' && (github.event.ref == 'refs/heads/master' || startsWith(github.event.ref, 'refs/tags'))
+        # Only upload on pushes to main or a tag
+        if: github.event_name == 'push' && (github.event.ref == 'refs/heads/main' || startsWith(github.event.ref, 'refs/tags'))
         with:
           gpg_key: ${{ secrets.GPG_KEY }}
           repository: ppa:legoktm/test
